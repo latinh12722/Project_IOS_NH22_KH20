@@ -1,0 +1,6 @@
+framework module Pods_project_QLBX {
+  umbrella header "Pods-project_QLBX-umbrella.h"
+
+  export *
+  module * { export * }
+}
