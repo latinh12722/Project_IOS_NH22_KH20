@@ -17,9 +17,6 @@ var types:[protype] = []
 class ViewController: UIViewController{
     var ref: DatabaseReference!
     
-    @IBOutlet weak var btnselection_moto: UIButton!
-    
-    @IBOutlet weak var btncancel_search: UIButton!
     @IBOutlet weak var btnsearch: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var btnAccount: UIBarButtonItem!
@@ -35,14 +32,57 @@ class ViewController: UIViewController{
         btnAccount.target = self
         btnAccount.action = #selector(click_account)
         ref = Database.database().reference().child("motorbikes")
+        
+        getdata_manu()
+        getdata_type()
         getdata_moto()
-        
-        btnselection_moto.addTarget(self, action: #selector(adddl), for: .touchUpInside)
-        
         btnsearch.layer.cornerRadius = 10
-        btncancel_search.isHidden = false
+//        manus+=[manufacture(manu_id: "1", manu_name: "123", image: "Ád")!]
+//        manus+=[manufacture(manu_id: "2", manu_name: "ád", image: "Ád")!]
+//        manus+=[manufacture(manu_id: "3", manu_name: "12ứ", image: "Ád")!]
+//
+//        types+=[protype(type_id: "1", type_name: "213")!]
+//        types+=[protype(type_id: "1", type_name: "ád")!]
+//        types+=[protype(type_id: "1", type_name: "qưds")!]
         
         
+    }
+    
+    
+    
+    func getdata_type(){
+        ref = Database.database().reference().child("protypes")
+        ref.observe(DataEventType.value, with:{(snapshot) in
+            if snapshot.childrenCount > 0 {
+                types.removeAll()
+                for artists in snapshot.children.allObjects as! [DataSnapshot]{
+                    let artistObject = artists.value as? [String: AnyObject]
+                    let type_id = artistObject?["type_id"] as! String
+                    let type_name = artistObject?["type_name"] as! String
+                   
+                    let type = protype(type_id: type_id, type_name: type_name)
+                    types.append(type!)
+                }
+            }
+        })
+    }
+    func getdata_manu(){
+        ref = Database.database().reference().child("manufactures")
+        ref.observe(DataEventType.value, with:{(snapshot) in
+            if snapshot.childrenCount > 0 {
+                manus.removeAll()
+                for artists in snapshot.children.allObjects as! [DataSnapshot]{
+                    let artistObject = artists.value as? [String: AnyObject]
+                    let manu_id = artistObject?["manu_id"] as! String
+                    let manu_name = artistObject?["manu_name"] as! String
+                    let iamge:String = artistObject?["image"] as! String
+                   
+                    let manu = manufacture(manu_id: manu_id, manu_name: manu_name, image: iamge)
+                    manus.append(manu!)
+                }
+                
+            }
+        })
     }
     @objc func adddlmanu_type(){
 //        ref = Database.database().reference().child("manufactures")
@@ -55,14 +95,14 @@ class ViewController: UIViewController{
 //            ref.child(String(k!)).setValue(manu)
 //        }
 //
-//        ref = Database.database().reference().child("protypes")
-//        for t in types {
-//            let k = ref.childByAutoId().key
-//            let type = ["type_id":k as Any,
-//                      "type_name": t.type_name
-//            ]
-//            ref.child(String(k!)).setValue(type)
-//        }
+        ref = Database.database().reference().child("protypes")
+        for t in types {
+            let k = ref.childByAutoId().key
+            let type = ["type_id":k as Any,
+                      "type_name": t.type_name
+            ]
+            ref.child(String(k!)).setValue(type)
+        }
     }
     @objc func addadmin(){
         //        ref = Database.database().reference().    child("admin")
@@ -92,7 +132,7 @@ class ViewController: UIViewController{
         
     }
     func getdata_moto(){
-        
+        ref = Database.database().reference().child("motorbikes")
         ref.observe(DataEventType.value, with:{(snapshot) in
             if snapshot.childrenCount > 0 {
                 motorbikes.removeAll()
@@ -120,6 +160,8 @@ class ViewController: UIViewController{
         })
     }
     @objc func click_account (sender:UIButton) {
+        print(types)
+        print(manus)
         if login_user != "" {
             print("ok")
 //            let navigation = UINavigationController(rootViewController: logincontroller)
@@ -128,10 +170,9 @@ class ViewController: UIViewController{
 //            navigation.didMove(toParent: self)
         }else{
             if login_admin != "" {
-                let story = UIStoryboard(name: "Main", bundle: nil)
-                let AdminViewController = story.instantiateViewController(identifier: "AdminViewController") as! AdminViewController
-                AdminViewController.modalPresentationStyle = .fullScreen
-                self.present(AdminViewController, animated: true, completion: nil)
+                let vc = AdminViewController()
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true, completion: nil)
             }else{
                 let story = UIStoryboard(name: "Main", bundle: nil)
                 let logincontroller = story.instantiateViewController(identifier: "LoginViewController") as! LoginViewController

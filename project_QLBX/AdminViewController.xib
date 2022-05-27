@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AdminViewController" customModule="project_QLBX" customModuleProvider="target">
+            <connections>
+                <outlet property="btnlogout" destination="hn3-1P-h8F" id="DWr-oB-Pxq"/>
+                <outlet property="lbnameadmin" destination="z4p-ad-mhb" id="ey3-OS-EQf"/>
+                <outlet property="tbvadmin" destination="Pt3-iK-h3H" id="Y6m-n3-3Ga"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gXH-0u-pgj">
+                    <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <items>
+                        <navigationItem title="Title" id="1d2-9y-7A5">
+                            <barButtonItem key="leftBarButtonItem" title="Đăng xuất" id="hn3-1P-h8F"/>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z4p-ad-mhb">
+                    <rect key="frame" x="10" y="98" width="394" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Pt3-iK-h3H">
+                    <rect key="frame" x="10" y="129" width="374" height="723"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="z4p-ad-mhb" secondAttribute="trailing" constant="10" id="1lQ-UY-Yj7"/>
+                <constraint firstItem="gXH-0u-pgj" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="MM1-zI-H6U"/>
+                <constraint firstItem="Pt3-iK-h3H" firstAttribute="top" secondItem="z4p-ad-mhb" secondAttribute="bottom" constant="10" id="SgS-9Y-bU6"/>
+                <constraint firstItem="z4p-ad-mhb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="WEI-4A-roP"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Pt3-iK-h3H" secondAttribute="bottom" constant="10" id="c6d-HS-8cg"/>
+                <constraint firstItem="z4p-ad-mhb" firstAttribute="top" secondItem="gXH-0u-pgj" secondAttribute="bottom" constant="10" id="duh-Mo-ccc"/>
+                <constraint firstItem="Pt3-iK-h3H" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="fQ1-uw-UpQ"/>
+                <constraint firstAttribute="trailingMargin" secondItem="Pt3-iK-h3H" secondAttribute="trailing" constant="10" id="pNT-lz-vdr"/>
+                <constraint firstItem="gXH-0u-pgj" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="z42-fj-Khg"/>
+                <constraint firstItem="gXH-0u-pgj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="zW2-hu-XQM"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="133" y="99"/>
+        </view>
+    </objects>
+</document>

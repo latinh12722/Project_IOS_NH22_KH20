@@ -8,11 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		4BA7791EF7CFDFD7C60F2EAE /* Pods_project_QLBX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 521D1DB405A463D97EE3C72E /* Pods_project_QLBX.framework */; };
-		D700D7D7283571590034819A /* protype.swift in Sources */ = {isa = PBXBuildFile; fileRef = D700D7D6283571590034819A /* protype.swift */; };
 		D74EDD8D28340B9000D35CAD /* MotorbikeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74EDD8C28340B9000D35CAD /* MotorbikeCollectionViewCell.swift */; };
-		D74EDD9028340C8D00D35CAD /* Motorbike.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74EDD8E28340C8D00D35CAD /* Motorbike.swift */; };
-		D74EDD9128340C8D00D35CAD /* manufacture.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74EDD8F28340C8D00D35CAD /* manufacture.swift */; };
-		D75CDCB8283688C600F23B68 /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75CDCB7283688C600F23B68 /* AdminViewController.swift */; };
+		D752FEE72840B09600948E93 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = D752FEE62840B09600948E93 /* Util.swift */; };
+		D752FEEA2840B3EC00948E93 /* ManuManagerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D752FEE82840B3EC00948E93 /* ManuManagerTableViewCell.swift */; };
+		D752FEEB2840B3EC00948E93 /* ManuManagerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D752FEE92840B3EC00948E93 /* ManuManagerTableViewCell.xib */; };
+		D759F4EB283F599800C79202 /* MotorbikeManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D759F4E9283F599800C79202 /* MotorbikeManagerViewController.swift */; };
+		D759F4EC283F599800C79202 /* MotorbikeManagerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D759F4EA283F599800C79202 /* MotorbikeManagerViewController.xib */; };
+		D759F4EF283F5F4900C79202 /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D759F4ED283F5F4900C79202 /* AdminViewController.swift */; };
+		D759F4F0283F5F4900C79202 /* AdminViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D759F4EE283F5F4900C79202 /* AdminViewController.xib */; };
+		D759F4F3283F641500C79202 /* AdminTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D759F4F1283F641500C79202 /* AdminTableViewCell.swift */; };
+		D759F4F4283F641500C79202 /* AdminTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D759F4F2283F641500C79202 /* AdminTableViewCell.xib */; };
+		D759F51B283FC9B000C79202 /* MotorManagerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D759F519283FC9B000C79202 /* MotorManagerTableViewCell.swift */; };
+		D759F51C283FC9B000C79202 /* MotorManagerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D759F51A283FC9B000C79202 /* MotorManagerTableViewCell.xib */; };
+		D759F51D283FCD4400C79202 /* manufacture.swift in Sources */ = {isa = PBXBuildFile; fileRef = D759F516283FC8F500C79202 /* manufacture.swift */; };
+		D759F51E283FCD4400C79202 /* Motorbike.swift in Sources */ = {isa = PBXBuildFile; fileRef = D759F517283FC8F500C79202 /* Motorbike.swift */; };
+		D759F51F283FCD4400C79202 /* protype.swift in Sources */ = {isa = PBXBuildFile; fileRef = D759F518283FC8F600C79202 /* protype.swift */; };
+		D759F522283FFA5500C79202 /* ManufactureManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D759F520283FFA5500C79202 /* ManufactureManagerViewController.swift */; };
+		D759F523283FFA5500C79202 /* ManufactureManagerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D759F521283FFA5500C79202 /* ManufactureManagerViewController.xib */; };
+		D759F52628400D5300C79202 /* ProtypesManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D759F52428400D5300C79202 /* ProtypesManagerViewController.swift */; };
+		D759F52728400D5300C79202 /* ProtypesManagerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D759F52528400D5300C79202 /* ProtypesManagerViewController.xib */; };
 		D7E849C5283657B800D84F53 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E849C3283657B800D84F53 /* RegisterViewController.swift */; };
 		D7E849C6283657B800D84F53 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7E849C4283657B800D84F53 /* RegisterViewController.xib */; };
 		D7E8999928339B45004D7DE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E8999828339B45004D7DE9 /* AppDelegate.swift */; };
@@ -29,11 +43,25 @@
 /* Begin PBXFileReference section */
 		521D1DB405A463D97EE3C72E /* Pods_project_QLBX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_project_QLBX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B41DCDCA4867EE6DA3B9D3FB /* Pods-project_QLBX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-project_QLBX.release.xcconfig"; path = "Target Support Files/Pods-project_QLBX/Pods-project_QLBX.release.xcconfig"; sourceTree = "<group>"; };
-		D700D7D6283571590034819A /* protype.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = protype.swift; path = ../../bt/project1/project/protype.swift; sourceTree = "<group>"; };
 		D74EDD8C28340B9000D35CAD /* MotorbikeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MotorbikeCollectionViewCell.swift; path = ../../bt/project2/project2/MotorbikeCollectionViewCell.swift; sourceTree = "<group>"; };
-		D74EDD8E28340C8D00D35CAD /* Motorbike.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Motorbike.swift; path = ../../bt/project2/project2/Motorbike.swift; sourceTree = "<group>"; };
-		D74EDD8F28340C8D00D35CAD /* manufacture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = manufacture.swift; path = ../../bt/project2/project2/manufacture.swift; sourceTree = "<group>"; };
-		D75CDCB7283688C600F23B68 /* AdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
+		D752FEE62840B09600948E93 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		D752FEE82840B3EC00948E93 /* ManuManagerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManuManagerTableViewCell.swift; sourceTree = "<group>"; };
+		D752FEE92840B3EC00948E93 /* ManuManagerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ManuManagerTableViewCell.xib; sourceTree = "<group>"; };
+		D759F4E9283F599800C79202 /* MotorbikeManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotorbikeManagerViewController.swift; sourceTree = "<group>"; };
+		D759F4EA283F599800C79202 /* MotorbikeManagerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MotorbikeManagerViewController.xib; sourceTree = "<group>"; };
+		D759F4ED283F5F4900C79202 /* AdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
+		D759F4EE283F5F4900C79202 /* AdminViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdminViewController.xib; sourceTree = "<group>"; };
+		D759F4F1283F641500C79202 /* AdminTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminTableViewCell.swift; sourceTree = "<group>"; };
+		D759F4F2283F641500C79202 /* AdminTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdminTableViewCell.xib; sourceTree = "<group>"; };
+		D759F516283FC8F500C79202 /* manufacture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = manufacture.swift; sourceTree = "<group>"; };
+		D759F517283FC8F500C79202 /* Motorbike.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Motorbike.swift; sourceTree = "<group>"; };
+		D759F518283FC8F600C79202 /* protype.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = protype.swift; sourceTree = "<group>"; };
+		D759F519283FC9B000C79202 /* MotorManagerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotorManagerTableViewCell.swift; sourceTree = "<group>"; };
+		D759F51A283FC9B000C79202 /* MotorManagerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MotorManagerTableViewCell.xib; sourceTree = "<group>"; };
+		D759F520283FFA5500C79202 /* ManufactureManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManufactureManagerViewController.swift; sourceTree = "<group>"; };
+		D759F521283FFA5500C79202 /* ManufactureManagerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ManufactureManagerViewController.xib; sourceTree = "<group>"; };
+		D759F52428400D5300C79202 /* ProtypesManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtypesManagerViewController.swift; sourceTree = "<group>"; };
+		D759F52528400D5300C79202 /* ProtypesManagerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProtypesManagerViewController.xib; sourceTree = "<group>"; };
 		D7E849C3283657B800D84F53 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		D7E849C4283657B800D84F53 /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		D7E8999528339B45004D7DE9 /* project_QLBX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = project_QLBX.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,9 +119,9 @@
 		D7E8999728339B45004D7DE9 /* project_QLBX */ = {
 			isa = PBXGroup;
 			children = (
-				D700D7D6283571590034819A /* protype.swift */,
-				D74EDD8F28340C8D00D35CAD /* manufacture.swift */,
-				D74EDD8E28340C8D00D35CAD /* Motorbike.swift */,
+				D759F518283FC8F600C79202 /* protype.swift */,
+				D759F516283FC8F500C79202 /* manufacture.swift */,
+				D759F517283FC8F500C79202 /* Motorbike.swift */,
 				D74EDD8C28340B9000D35CAD /* MotorbikeCollectionViewCell.swift */,
 				D7E899AC28339C12004D7DE9 /* GoogleService-Info.plist */,
 				D7E8999828339B45004D7DE9 /* AppDelegate.swift */,
@@ -107,7 +135,21 @@
 				D7E899B02833BA26004D7DE9 /* LoginViewController.swift */,
 				D7E849C3283657B800D84F53 /* RegisterViewController.swift */,
 				D7E849C4283657B800D84F53 /* RegisterViewController.xib */,
-				D75CDCB7283688C600F23B68 /* AdminViewController.swift */,
+				D759F4E9283F599800C79202 /* MotorbikeManagerViewController.swift */,
+				D759F4EA283F599800C79202 /* MotorbikeManagerViewController.xib */,
+				D759F4ED283F5F4900C79202 /* AdminViewController.swift */,
+				D759F4EE283F5F4900C79202 /* AdminViewController.xib */,
+				D759F4F1283F641500C79202 /* AdminTableViewCell.swift */,
+				D759F4F2283F641500C79202 /* AdminTableViewCell.xib */,
+				D759F519283FC9B000C79202 /* MotorManagerTableViewCell.swift */,
+				D759F51A283FC9B000C79202 /* MotorManagerTableViewCell.xib */,
+				D759F520283FFA5500C79202 /* ManufactureManagerViewController.swift */,
+				D759F521283FFA5500C79202 /* ManufactureManagerViewController.xib */,
+				D759F52428400D5300C79202 /* ProtypesManagerViewController.swift */,
+				D759F52528400D5300C79202 /* ProtypesManagerViewController.xib */,
+				D752FEE62840B09600948E93 /* Util.swift */,
+				D752FEE82840B3EC00948E93 /* ManuManagerTableViewCell.swift */,
+				D752FEE92840B3EC00948E93 /* ManuManagerTableViewCell.xib */,
 			);
 			path = project_QLBX;
 			sourceTree = "<group>";
@@ -182,10 +224,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7E899A528339B46004D7DE9 /* LaunchScreen.storyboard in Resources */,
+				D759F4EC283F599800C79202 /* MotorbikeManagerViewController.xib in Resources */,
+				D759F523283FFA5500C79202 /* ManufactureManagerViewController.xib in Resources */,
 				D7E849C6283657B800D84F53 /* RegisterViewController.xib in Resources */,
+				D752FEEB2840B3EC00948E93 /* ManuManagerTableViewCell.xib in Resources */,
+				D759F4F4283F641500C79202 /* AdminTableViewCell.xib in Resources */,
+				D759F51C283FC9B000C79202 /* MotorManagerTableViewCell.xib in Resources */,
 				D7E899AD28339C12004D7DE9 /* GoogleService-Info.plist in Resources */,
+				D759F4F0283F5F4900C79202 /* AdminViewController.xib in Resources */,
 				D7E899A228339B46004D7DE9 /* Assets.xcassets in Resources */,
 				D7E899A028339B45004D7DE9 /* Main.storyboard in Resources */,
+				D759F52728400D5300C79202 /* ProtypesManagerViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,17 +287,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D75CDCB8283688C600F23B68 /* AdminViewController.swift in Sources */,
+				D759F4EF283F5F4900C79202 /* AdminViewController.swift in Sources */,
 				D7E8999D28339B45004D7DE9 /* ViewController.swift in Sources */,
+				D759F51B283FC9B000C79202 /* MotorManagerTableViewCell.swift in Sources */,
+				D759F522283FFA5500C79202 /* ManufactureManagerViewController.swift in Sources */,
+				D759F51F283FCD4400C79202 /* protype.swift in Sources */,
 				D7E849C5283657B800D84F53 /* RegisterViewController.swift in Sources */,
+				D752FEE72840B09600948E93 /* Util.swift in Sources */,
+				D759F51E283FCD4400C79202 /* Motorbike.swift in Sources */,
+				D759F4F3283F641500C79202 /* AdminTableViewCell.swift in Sources */,
 				D7E8999928339B45004D7DE9 /* AppDelegate.swift in Sources */,
-				D74EDD9028340C8D00D35CAD /* Motorbike.swift in Sources */,
-				D74EDD9128340C8D00D35CAD /* manufacture.swift in Sources */,
+				D759F4EB283F599800C79202 /* MotorbikeManagerViewController.swift in Sources */,
 				D7E899AF2833A3EE004D7DE9 /* SearchViewController.swift in Sources */,
-				D700D7D7283571590034819A /* protype.swift in Sources */,
+				D752FEEA2840B3EC00948E93 /* ManuManagerTableViewCell.swift in Sources */,
 				D7E899B12833BA26004D7DE9 /* LoginViewController.swift in Sources */,
 				D7E8999B28339B45004D7DE9 /* SceneDelegate.swift in Sources */,
 				D74EDD8D28340B9000D35CAD /* MotorbikeCollectionViewCell.swift in Sources */,
+				D759F52628400D5300C79202 /* ProtypesManagerViewController.swift in Sources */,
+				D759F51D283FCD4400C79202 /* manufacture.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
