@@ -35,6 +35,7 @@ class MotorManagerTableViewCell: UITableViewCell {
         imagemotor?.image = UIImage(named: moto.image)
         imagemotor.contentMode = .scaleAspectFill
     }
+    
     func getnamemanu(id:String) -> String {
         for manu in manus{
             if manu.manu_id.elementsEqual(id){
@@ -61,4 +62,5 @@ class MotorManagerTableViewCell: UITableViewCell {
         numberFormatter.maximumFractionDigits = 2
         return numberFormatter.string(from: price as NSNumber)!
     }
+    
 }

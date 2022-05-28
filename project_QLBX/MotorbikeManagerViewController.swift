@@ -21,6 +21,9 @@ class MotorbikeManagerViewController: UIViewController , UITableViewDelegate, UI
     @IBOutlet weak var protype_table_DropDownHC:NSLayoutConstraint!
     @IBOutlet weak var manufacture_table_DropDownHC:NSLayoutConstraint!
     
+    @IBOutlet weak var btnxoa: UIButton!
+    @IBOutlet weak var btnsua: UIButton!
+    @IBOutlet weak var btnthem: UIButton!
     @IBOutlet weak var lbid: UILabel!
     @IBOutlet weak var tfnsx: UITextField!
     @IBOutlet weak var tfdongco: UITextField!
@@ -30,7 +33,10 @@ class MotorbikeManagerViewController: UIViewController , UITableViewDelegate, UI
     @IBOutlet weak var tftruyentai: UITextField!
     @IBOutlet weak var tfprice: UITextField!
     @IBOutlet weak var tfnhietlieu: UITextField!
-    
+    var manu_id_save = ""
+    var type_id_save = ""
+    var motor_id = ""
+    var nameimagemotor = ""
     var ref: DatabaseReference!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,10 +66,36 @@ class MotorbikeManagerViewController: UIViewController , UITableViewDelegate, UI
         let tap = UITapGestureRecognizer(target: self, action: #selector(imageProcessing))
         
         imagemotor.addGestureRecognizer(tap)
+        btnsua.isEnabled = false
+        btnxoa.isEnabled = false
+        
+    }
+    @IBAction func dimiss(_ sender: Any) {
+        self.dismiss(animated: false, completion: nil)
     }
     
     @IBAction func btndatlai(_ sender: Any) {
+        resetcontrol()
+        self.showSpinner()
+        Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { (t) in
+            self.getdata_moto()
+            self.motor_table.reloadData()
+            self.removeSpinner()
+        }
+    }
+    func resetcontrol()  {
         tfnsx.text = ""
+        lbid.text = "ID: "
+        tfnsx.text = ""
+        tfname.text = ""
+        tftruyentai.text = ""
+        tfpk.text = ""
+        tfphanh.text = ""
+        tfprice.text = ""
+        tfnhietlieu.text = ""
+        tfdongco.text = ""
+        btn_manu_dropdown.setTitle("Hãng", for: .normal)
+        btn_type_dropdown.setTitle("Loại xe", for: .normal)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -116,6 +148,7 @@ class MotorbikeManagerViewController: UIViewController , UITableViewDelegate, UI
             UIView.animate(withDuration: 0.5){
                 self.protype_table_DropDownHC.constant = 0
                 self.is_protype_table = false
+                self.type_id_save = types[indexPath.row].type_id
             }
         case manufacture_table:
             
@@ -123,6 +156,7 @@ class MotorbikeManagerViewController: UIViewController , UITableViewDelegate, UI
             UIView.animate(withDuration: 0.5){
             self.manufacture_table_DropDownHC.constant = 0
             self.is_manufacture_table = false
+            self.manu_id_save = manus[indexPath.row].manu_id
         }
         default:
             let moto = motorbikes[indexPath.row]
@@ -135,6 +169,16 @@ class MotorbikeManagerViewController: UIViewController , UITableViewDelegate, UI
             tftruyentai.text = moto.transmission
             lbid.text = "ID: " + moto.id
             tfprice.text = String(moto.price)
+            motor_id = motorbikes[indexPath.row].id
+            
+            btn_manu_dropdown.setTitle(getnamemanu(id: moto.manu_id), for: .normal)
+            
+            btn_type_dropdown.setTitle(getnametype(id: moto.type_id), for: .normal)
+            type_id_save = getnametype(id: moto.type_id)
+            manu_id_save = getnamemanu(id: moto.manu_id)
+            btnsua.isEnabled = true
+            btnxoa.isEnabled = true
+            
         }
         self.view.layoutIfNeeded()
     }
@@ -211,9 +255,93 @@ class MotorbikeManagerViewController: UIViewController , UITableViewDelegate, UI
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         //get the image from the imagePickerController
         if let selectedImage = info[.originalImage] as? UIImage{
+            let url = info[UIImagePickerController.InfoKey.referenceURL] as! NSURL
+            nameimagemotor =  url.lastPathComponent!
+            
             imagemotor.image = selectedImage
         }
         //hide ther imagePickerController
         dismiss(animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func btnthem(_ sender: Any) {
+        if self.checknumber_kam(x: tfprice.text!) && self.checknumber_kam(x: tfnsx.text!) && self.checknumber_kam(x: tfpk.text!){
+            ref = Database.database().reference().child("motorbikes")
+            let key = ref.childByAutoId().key
+            let xe = ["id":key as Any,
+                  "moto_name": tfname.text as Any,
+                  "moto_price": Int(tfprice.text!) as Any,
+                  "type_id": type_id_save,
+                  "manu_id": manu_id_save,
+                  "fuel": tfnhietlieu.text as Any,
+                  "transmission": tftruyentai.text as Any,
+                  "cubic_meter" : Int(tfpk.text!) as Any,
+                  "brake" : tfphanh.text as Any,
+                  "engine" : tfdongco.text as Any,
+                  "nsx": Int(tfnsx.text!) as Any,
+                  "image": nameimagemotor] as [String : Any]
+            ref.child(String(key!)).setValue(xe)
+            btnsua.isEnabled = false
+            btnxoa.isEnabled = false
+            self.showSpinner()
+            Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { (t) in
+                self.getdata_moto()
+                self.motor_table.reloadData()
+                self.removeSpinner()
+                self.resetcontrol()
+            }
+            self.showToast(message: "Thêm thành công", font: .systemFont(ofSize: 12.0))
+        }else{
+            self.showToast(message: "Nhập lại dữ liệu", font: .systemFont(ofSize: 12.0))
+        }
+    }
+    
+    
+    @IBAction func btnsua(_ sender: Any) {
+        if self.checknumber_kam(x: tfprice.text!) && self.checknumber_kam(x: tfnsx.text!) && self.checknumber_kam(x: tfpk.text!){
+            let id = motor_id
+            ref = Database.database().reference().child("motorbikes")
+            ref.child(id).setValue(["id": id as Any,
+            "moto_name": tfname.text as Any,
+            "moto_price": Int(tfprice.text!) as Any,
+            "type_id": type_id_save,
+            "manu_id": manu_id_save,
+            "fuel": tfnhietlieu.text as Any,
+            "transmission": tftruyentai.text as Any,
+            "cubic_meter" : Int(tfpk.text!) as Any,
+            "brake" : tfphanh.text as Any,
+            "engine" : tfdongco.text as Any,
+            "nsx": Int(tfnsx.text!) as Any,
+            "image": nameimagemotor] as [String : Any])
+            
+            btnsua.isEnabled = false
+            btnxoa.isEnabled = false
+            self.showSpinner()
+            Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { (t) in
+                self.getdata_moto()
+                self.motor_table.reloadData()
+                self.removeSpinner()
+                self.resetcontrol()
+            }
+            self.showToast(message: "Sửa thành công", font: .systemFont(ofSize: 12.0))
+        }else{
+            self.showToast(message: "Nhập lại dữ liệu", font: .systemFont(ofSize: 12.0))
+        }
+    }
+    @IBAction func btnxoa(_ sender: Any) {
+        let id = motor_id
+        ref = Database.database().reference().child("motorbikes")
+        ref.child(id).removeValue()
+        btnsua.isEnabled = false
+        btnxoa.isEnabled = false
+        self.showSpinner()
+        Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { (t) in
+            self.getdata_moto()
+            self.motor_table.reloadData()
+            self.removeSpinner()
+            self.resetcontrol()
+        }
+        self.showToast(message: "Xoá thành công", font: .systemFont(ofSize: 12.0))
     }
 }

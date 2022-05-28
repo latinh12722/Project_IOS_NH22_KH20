@@ -11,8 +11,10 @@ import Firebase
 import FirebaseDatabase
 class ManufactureManagerViewController: UIViewController ,UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     var ref: DatabaseReference!
-    
+    var nameimage : String = ""
 		
+    @IBOutlet weak var btnchonanh: UIButton!
+    
     @IBOutlet weak var btnxoa: UIButton!
     @IBOutlet weak var btnsua: UIButton!
     @IBOutlet weak var btnthem: UIButton!
@@ -32,6 +34,8 @@ class ManufactureManagerViewController: UIViewController ,UITableViewDelegate, U
         let tap = UITapGestureRecognizer(target: self, action: #selector(imageProcessing))
         imagemanu.addGestureRecognizer(tap)
         imagemanu.isUserInteractionEnabled = true
+        btnchonanh.addGestureRecognizer(tap)
+        btnchonanh.isUserInteractionEnabled = true
     }
 
     @IBAction func dimiss_manu(_ sender: Any) {
@@ -41,7 +45,7 @@ class ManufactureManagerViewController: UIViewController ,UITableViewDelegate, U
    
     @IBAction func btndatlai(_ sender: Any) {
         tfmanuname.text = ""
-        lbmanuid.text = ""
+        lbmanuid.text = "ID: "
     }
     
     
@@ -57,27 +61,77 @@ class ManufactureManagerViewController: UIViewController ,UITableViewDelegate, U
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        lbmanuid.text = manus[indexPath.row].manu_id
+        lbmanuid.text = "ID: " + manus[indexPath.row].manu_id
         tfmanuname.text = manus[indexPath.row].manu_name
         imagemanu.image = UIImage(named: manus[indexPath.row].image)
+        nameimage = manus[indexPath.row].image
     }
     @IBAction func btnthem(_ sender: Any) {
-        print(imagemanu.image)
-//        ref = Database.database().reference().child("manufactures")
-//        let k = ref.childByAutoId().key
-//        let manu = ["manu_id":k as Any,
-//                    "manu_name": tfmanuname,
-//                    "image": imagemanu.image?.
-//        ]
-//        ref.child(String(k!)).setValue(manu)
+        if nameimage != "" {
+            ref = Database.database().reference().child("manufactures")
+            let k = ref.childByAutoId().key
+            
+            let manu = ["manu_id":k as Any,
+                        "manu_name": tfmanuname.text as Any,
+                        "image": nameimage
+            ]
+            ref.child(String(k!)).setValue(manu)
+            self.showSpinner()
+            Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { (t) in
+                self.getdata_manu()
+                self.tbmanu.reloadData()
+                self.removeSpinner()
+            }
+        }
+        
     }
     @IBAction func btnsua(_ sender: Any) {
+        let id = manus[tbmanu.indexPathForSelectedRow!.row].manu_id
+        ref = Database.database().reference().child("manufactures")
+        ref.child(id).setValue(["manu_id": id , "manu_name": tfmanuname.text])
+        
+        
+        self.showSpinner()
+        Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { (t) in
+            self.getdata_manu()
+            self.tbmanu.reloadData()
+            self.removeSpinner()
+        }
+        self.showToast(message: "Sửa thành công", font: .systemFont(ofSize: 12.0))
         
     }
     @IBAction func btnxoa(_ sender: Any) {
+        let id = lbmanuid.text
+        ref = Database.database().reference().child("manufactures")
+        ref.child(id!).removeValue()
         
+        
+        self.showSpinner()
+        Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { (t) in
+            self.getdata_manu()
+            self.tbmanu.reloadData()
+            self.removeSpinner()
+        }
+        self.showToast(message: "Xoá thành công", font: .systemFont(ofSize: 12.0))
     }
-    
+    func getdata_manu(){
+        ref = Database.database().reference().child("manufactures")
+        ref.observe(DataEventType.value, with:{(snapshot) in
+            if snapshot.childrenCount > 0 {
+                manus.removeAll()
+                for artists in snapshot.children.allObjects as! [DataSnapshot]{
+                    let artistObject = artists.value as? [String: AnyObject]
+                    let manu_id = artistObject?["manu_id"] as! String
+                    let manu_name = artistObject?["manu_name"] as! String
+                    let iamge:String = artistObject?["image"] as! String
+                   
+                    let manu = manufacture(manu_id: manu_id, manu_name: manu_name, image: iamge)
+                    manus.append(manu!)
+                }
+                
+            }
+        })
+    }
 
         
     @IBAction func imageProcessing(_ sender: UITapGestureRecognizer) {
@@ -98,7 +152,11 @@ class ManufactureManagerViewController: UIViewController ,UITableViewDelegate, U
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
             //get the image from the imagePickerController
     if let selectedImage = info[.originalImage] as? UIImage{
+        let url = info[UIImagePickerController.InfoKey.referenceURL] as! NSURL
+        nameimage =  url.lastPathComponent!
+        
         imagemanu.image = selectedImage
+        imagemanu.layer.zPosition = 10
     }
             //hide ther imagePickerController
         dismiss(animated: true, completion: nil)

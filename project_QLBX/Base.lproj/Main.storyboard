@@ -127,7 +127,11 @@
                         </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="XEOK" id="GGK-iv-Qyg">
-                        <barButtonItem key="leftBarButtonItem" title="⟳" id="Kf8-vs-m0l"/>
+                        <barButtonItem key="leftBarButtonItem" title="⟳" id="Kf8-vs-m0l">
+                            <connections>
+                                <action selector="reload:" destination="BYZ-38-t0r" id="nTu-Dq-FI4"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Tài khoản" id="oBy-yd-1GP"/>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>

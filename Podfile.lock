@@ -101,6 +101,7 @@ PODS:
 DEPENDENCIES:
   - Firebase/Analytics
   - Firebase/Database
+  - FirebaseCore
 
 SPEC REPOS:
   trunk:
@@ -133,6 +134,6 @@ SPEC CHECKSUMS:
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 99b6f43f9e1044bd87a95a60beff28c2c44ddb72
 
-PODFILE CHECKSUM: f76c1ac719e521a280a494de4665cc6031caa486
+PODFILE CHECKSUM: 15ba6b7a241df4599f51f395d3daa4e5bcecd2f3
 
 COCOAPODS: 1.11.3

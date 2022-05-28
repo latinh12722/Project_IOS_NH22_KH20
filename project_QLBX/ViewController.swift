@@ -50,6 +50,18 @@ class ViewController: UIViewController{
     
     
     
+    @IBAction func reload(_ sender: Any) {
+        btnsearch.titleLabel?.text = "🔎 Nhập từ khoá tìm kiếm"
+        getdata_manu()
+        getdata_type()
+        getdata_moto()
+        self.showSpinner()
+        Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { (t) in
+            self.getdata_type()
+            self.collectionView.reloadData()
+            self.removeSpinner()
+        }
+    }
     func getdata_type(){
         ref = Database.database().reference().child("protypes")
         ref.observe(DataEventType.value, with:{(snapshot) in
@@ -160,8 +172,6 @@ class ViewController: UIViewController{
         })
     }
     @objc func click_account (sender:UIButton) {
-        print(types)
-        print(manus)
         if login_user != "" {
             print("ok")
 //            let navigation = UINavigationController(rootViewController: logincontroller)
@@ -182,16 +192,7 @@ class ViewController: UIViewController{
         }
     }
     
-    static func df2so(_ price: Double) -> String{
-        let numberFormatter = NumberFormatter()
-        numberFormatter.groupingSeparator = ","
-        numberFormatter.groupingSize = 3
-        numberFormatter.usesGroupingSeparator = true
-        numberFormatter.decimalSeparator = "."
-        numberFormatter.numberStyle = .decimal
-        numberFormatter.maximumFractionDigits = 2
-        return numberFormatter.string(from: price as NSNumber)!
-    }
+    
 }
 
 extension ViewController: UICollectionViewDataSource{
@@ -219,7 +220,9 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
 }
 extension ViewController:UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.row)
+        let vc = MotorDetailViewController()
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
     }
 }
 

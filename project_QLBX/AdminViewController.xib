@@ -9,7 +9,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AdminViewController" customModule="project_QLBX" customModuleProvider="target">
             <connections>
-                <outlet property="btnlogout" destination="hn3-1P-h8F" id="DWr-oB-Pxq"/>
                 <outlet property="lbnameadmin" destination="z4p-ad-mhb" id="ey3-OS-EQf"/>
                 <outlet property="tbvadmin" destination="Pt3-iK-h3H" id="Y6m-n3-3Ga"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -24,7 +23,11 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                     <items>
                         <navigationItem title="Title" id="1d2-9y-7A5">
-                            <barButtonItem key="leftBarButtonItem" title="Đăng xuất" id="hn3-1P-h8F"/>
+                            <barButtonItem key="leftBarButtonItem" title="Đăng xuất" id="hn3-1P-h8F">
+                                <connections>
+                                    <action selector="logout:" destination="-1" id="gQw-tN-aMv"/>
+                                </connections>
+                            </barButtonItem>
                         </navigationItem>
                     </items>
                 </navigationBar>

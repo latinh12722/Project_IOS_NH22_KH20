@@ -14,13 +14,12 @@ class AdminViewController: UIViewController , UITableViewDelegate, UITableViewDa
 
     @IBOutlet weak var tbvadmin: UITableView!
     @IBOutlet weak var lbnameadmin: UILabel!
-    @IBOutlet weak var btnlogout: UIBarButtonItem!
-    var danhsach:[String] = ["Bill","Motorbikes","Manufactures","Protypes","User"]
+    var danhsach:[String] = ["Bill","Motorbikes","Manufactures","Protypes"]
     var btn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         lbnameadmin.text = "Admin: " + login_user
-        danhsach = ["Bill","Motorbikes","Manufactures","Protypes","User"]
+        danhsach = ["Bill","Motorbikes","Manufactures","Protypes"]
         tbvadmin.delegate = self
         tbvadmin.dataSource = self
         let nib = UINib(nibName: "AdminTableViewCell", bundle: nil)
@@ -28,7 +27,11 @@ class AdminViewController: UIViewController , UITableViewDelegate, UITableViewDa
         
         // Do any additional setup after loading the view.
     }
-
+    @IBAction func logout(_ sender: Any) {
+        login_admin = ""
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     
     
     
