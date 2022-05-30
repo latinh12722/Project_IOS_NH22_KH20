@@ -15,7 +15,7 @@ class Motorbike {
     var fuel:String = "",transmission:String = ""
     var image:String, engine:String
     var nsx:Int,cubic_meter:Int
-    init?(id:String, name:String, price:Int, type_id:String, manu_id:String, brake:String, fuel:String, transmission:String, engine:String, cubic_meter:Int, image:String, nsx:Int) {
+    init(id:String, name:String, price:Int, type_id:String, manu_id:String, brake:String, fuel:String, transmission:String, engine:String, cubic_meter:Int, image:String, nsx:Int) {
         self.id = id
         self.name = name
         self.price = price
@@ -29,6 +29,7 @@ class Motorbike {
         self.cubic_meter = cubic_meter
         self.engine = engine
     }
+    
     func tostring(){
         print(id,name,image,type_id,manu_id,nsx)
     }

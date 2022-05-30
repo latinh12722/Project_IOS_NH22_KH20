@@ -77,8 +77,40 @@ extension UIViewController {
         }
         return false
     }
+    func getmanu(id:String) -> manufacture {
+        for manu in manus{
+            if manu.manu_id.elementsEqual(id){
+                return manu
+            }
+        }
+        return manufacture(manu_id: "", manu_name: "", image: "")!
+    }
+    func getmotor_byid(motor_id:String) -> Motorbike {
+        for moto in motorbikes {
+            if motor_id == moto.id{
+                return moto
+            }
+        }
+    return Motorbike(id: "", name: "", price: 1, type_id: "", manu_id: "", brake: "", fuel: "", transmission: "", engine: "", cubic_meter: 1, image: "", nsx: 1)
+    }
+    func convertTimestamp(serverTimestamp: Double) -> String {
+        let x = serverTimestamp / 1000
+        let date = NSDate(timeIntervalSince1970: x)
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        formatter.timeStyle = .medium
+
+        return formatter.string(from: date as Date)
+    }
 }
 public extension String {
 func isNumber() -> Bool {
     return !self.isEmpty && self.rangeOfCharacter(from: CharacterSet.decimalDigits) != nil && self.rangeOfCharacter(from: CharacterSet.letters) == nil
 }}
+extension String {
+   var isValidPhone: Bool {
+      let regularExpressionForPhone = "^\\d{3}\\d{3}\\d{4}$"
+      let testPhone = NSPredicate(format:"SELF MATCHES %@", regularExpressionForPhone)
+      return testPhone.evaluate(with: self)
+   }
+}

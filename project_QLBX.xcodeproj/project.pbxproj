@@ -8,12 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		4BA7791EF7CFDFD7C60F2EAE /* Pods_project_QLBX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 521D1DB405A463D97EE3C72E /* Pods_project_QLBX.framework */; };
+		D71ABF362844D19100AC7B16 /* MotorDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D71ABF342844D19000AC7B16 /* MotorDetailViewController.xib */; };
+		D71ABF372844D19100AC7B16 /* MotorDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71ABF352844D19100AC7B16 /* MotorDetailViewController.swift */; };
+		D71ABF392844EF1B00AC7B16 /* BIll.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71ABF382844EF1B00AC7B16 /* BIll.swift */; };
+		D7224D9028451DCC00E93DB7 /* AccountUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7224D8E28451DCC00E93DB7 /* AccountUserViewController.swift */; };
+		D7224D9128451DCC00E93DB7 /* AccountUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7224D8F28451DCC00E93DB7 /* AccountUserViewController.xib */; };
+		D7224D982845218100E93DB7 /* MotorbikeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7224D972845218100E93DB7 /* MotorbikeCollectionViewCell.swift */; };
+		D7224D9B2845220900E93DB7 /* BillsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7224D992845220900E93DB7 /* BillsViewController.swift */; };
+		D7224D9C2845220900E93DB7 /* BillsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7224D9A2845220900E93DB7 /* BillsViewController.xib */; };
+		D7224D9E28452DCA00E93DB7 /* user.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7224D9D28452DCA00E93DB7 /* user.swift */; };
+		D7224DA128453A6900E93DB7 /* BillsManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7224D9F28453A6900E93DB7 /* BillsManagerViewController.swift */; };
+		D7224DA228453A6A00E93DB7 /* BillsManagerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7224DA028453A6900E93DB7 /* BillsManagerViewController.xib */; };
+		D7224DA52845465100E93DB7 /* BillsManagerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7224DA32845465100E93DB7 /* BillsManagerTableViewCell.swift */; };
+		D7224DA62845465100E93DB7 /* BillsManagerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7224DA42845465100E93DB7 /* BillsManagerTableViewCell.xib */; };
 		D74EDD8D28340B9000D35CAD /* MotorbikeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74EDD8C28340B9000D35CAD /* MotorbikeCollectionViewCell.swift */; };
 		D752FEE72840B09600948E93 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = D752FEE62840B09600948E93 /* Util.swift */; };
 		D752FEEA2840B3EC00948E93 /* ManuManagerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D752FEE82840B3EC00948E93 /* ManuManagerTableViewCell.swift */; };
 		D752FEEB2840B3EC00948E93 /* ManuManagerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D752FEE92840B3EC00948E93 /* ManuManagerTableViewCell.xib */; };
-		D752FEF42840EBF100948E93 /* MotorDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D752FEF22840EBF100948E93 /* MotorDetailViewController.swift */; };
-		D752FEF52840EBF100948E93 /* MotorDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D752FEF32840EBF100948E93 /* MotorDetailViewController.xib */; };
 		D759F4EB283F599800C79202 /* MotorbikeManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D759F4E9283F599800C79202 /* MotorbikeManagerViewController.swift */; };
 		D759F4EC283F599800C79202 /* MotorbikeManagerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D759F4EA283F599800C79202 /* MotorbikeManagerViewController.xib */; };
 		D759F4EF283F5F4900C79202 /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D759F4ED283F5F4900C79202 /* AdminViewController.swift */; };
@@ -29,6 +40,10 @@
 		D759F523283FFA5500C79202 /* ManufactureManagerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D759F521283FFA5500C79202 /* ManufactureManagerViewController.xib */; };
 		D759F52628400D5300C79202 /* ProtypesManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D759F52428400D5300C79202 /* ProtypesManagerViewController.swift */; };
 		D759F52728400D5300C79202 /* ProtypesManagerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D759F52528400D5300C79202 /* ProtypesManagerViewController.xib */; };
+		D75BBEF32843F7F100E3DA15 /* OrderMotorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75BBEF12843F7F100E3DA15 /* OrderMotorViewController.swift */; };
+		D75BBEF42843F7F100E3DA15 /* OrderMotorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D75BBEF22843F7F100E3DA15 /* OrderMotorViewController.xib */; };
+		D76ACF522844964200D1C0A6 /* MyAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76ACF512844964200D1C0A6 /* MyAlert.swift */; };
+		D7D993842843811A00539DCB /* DatabaseLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D993832843811A00539DCB /* DatabaseLayer.swift */; };
 		D7E849C5283657B800D84F53 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E849C3283657B800D84F53 /* RegisterViewController.swift */; };
 		D7E849C6283657B800D84F53 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7E849C4283657B800D84F53 /* RegisterViewController.xib */; };
 		D7E8999928339B45004D7DE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E8999828339B45004D7DE9 /* AppDelegate.swift */; };
@@ -45,12 +60,23 @@
 /* Begin PBXFileReference section */
 		521D1DB405A463D97EE3C72E /* Pods_project_QLBX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_project_QLBX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B41DCDCA4867EE6DA3B9D3FB /* Pods-project_QLBX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-project_QLBX.release.xcconfig"; path = "Target Support Files/Pods-project_QLBX/Pods-project_QLBX.release.xcconfig"; sourceTree = "<group>"; };
+		D71ABF342844D19000AC7B16 /* MotorDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MotorDetailViewController.xib; sourceTree = "<group>"; };
+		D71ABF352844D19100AC7B16 /* MotorDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotorDetailViewController.swift; sourceTree = "<group>"; };
+		D71ABF382844EF1B00AC7B16 /* BIll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BIll.swift; sourceTree = "<group>"; };
+		D7224D8E28451DCC00E93DB7 /* AccountUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountUserViewController.swift; sourceTree = "<group>"; };
+		D7224D8F28451DCC00E93DB7 /* AccountUserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountUserViewController.xib; sourceTree = "<group>"; };
+		D7224D972845218100E93DB7 /* MotorbikeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MotorbikeCollectionViewCell.swift; path = ../../bt/project2/project2/MotorbikeCollectionViewCell.swift; sourceTree = "<group>"; };
+		D7224D992845220900E93DB7 /* BillsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillsViewController.swift; sourceTree = "<group>"; };
+		D7224D9A2845220900E93DB7 /* BillsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BillsViewController.xib; sourceTree = "<group>"; };
+		D7224D9D28452DCA00E93DB7 /* user.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = user.swift; sourceTree = "<group>"; };
+		D7224D9F28453A6900E93DB7 /* BillsManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillsManagerViewController.swift; sourceTree = "<group>"; };
+		D7224DA028453A6900E93DB7 /* BillsManagerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BillsManagerViewController.xib; sourceTree = "<group>"; };
+		D7224DA32845465100E93DB7 /* BillsManagerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillsManagerTableViewCell.swift; sourceTree = "<group>"; };
+		D7224DA42845465100E93DB7 /* BillsManagerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BillsManagerTableViewCell.xib; sourceTree = "<group>"; };
 		D74EDD8C28340B9000D35CAD /* MotorbikeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MotorbikeCollectionViewCell.swift; path = ../../bt/project2/project2/MotorbikeCollectionViewCell.swift; sourceTree = "<group>"; };
 		D752FEE62840B09600948E93 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		D752FEE82840B3EC00948E93 /* ManuManagerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManuManagerTableViewCell.swift; sourceTree = "<group>"; };
 		D752FEE92840B3EC00948E93 /* ManuManagerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ManuManagerTableViewCell.xib; sourceTree = "<group>"; };
-		D752FEF22840EBF100948E93 /* MotorDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotorDetailViewController.swift; sourceTree = "<group>"; };
-		D752FEF32840EBF100948E93 /* MotorDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MotorDetailViewController.xib; sourceTree = "<group>"; };
 		D759F4E9283F599800C79202 /* MotorbikeManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotorbikeManagerViewController.swift; sourceTree = "<group>"; };
 		D759F4EA283F599800C79202 /* MotorbikeManagerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MotorbikeManagerViewController.xib; sourceTree = "<group>"; };
 		D759F4ED283F5F4900C79202 /* AdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +92,10 @@
 		D759F521283FFA5500C79202 /* ManufactureManagerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ManufactureManagerViewController.xib; sourceTree = "<group>"; };
 		D759F52428400D5300C79202 /* ProtypesManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtypesManagerViewController.swift; sourceTree = "<group>"; };
 		D759F52528400D5300C79202 /* ProtypesManagerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProtypesManagerViewController.xib; sourceTree = "<group>"; };
+		D75BBEF12843F7F100E3DA15 /* OrderMotorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderMotorViewController.swift; sourceTree = "<group>"; };
+		D75BBEF22843F7F100E3DA15 /* OrderMotorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderMotorViewController.xib; sourceTree = "<group>"; };
+		D76ACF512844964200D1C0A6 /* MyAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAlert.swift; sourceTree = "<group>"; };
+		D7D993832843811A00539DCB /* DatabaseLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseLayer.swift; sourceTree = "<group>"; };
 		D7E849C3283657B800D84F53 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		D7E849C4283657B800D84F53 /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		D7E8999528339B45004D7DE9 /* project_QLBX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = project_QLBX.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,12 +132,39 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D7224D92284520A100E93DB7 /* TableCell */ = {
+			isa = PBXGroup;
+			children = (
+				D7224D972845218100E93DB7 /* MotorbikeCollectionViewCell.swift */,
+				D759F4F1283F641500C79202 /* AdminTableViewCell.swift */,
+				D759F4F2283F641500C79202 /* AdminTableViewCell.xib */,
+				D759F519283FC9B000C79202 /* MotorManagerTableViewCell.swift */,
+				D759F51A283FC9B000C79202 /* MotorManagerTableViewCell.xib */,
+				D752FEE82840B3EC00948E93 /* ManuManagerTableViewCell.swift */,
+				D752FEE92840B3EC00948E93 /* ManuManagerTableViewCell.xib */,
+				D7224DA32845465100E93DB7 /* BillsManagerTableViewCell.swift */,
+				D7224DA42845465100E93DB7 /* BillsManagerTableViewCell.xib */,
+			);
+			name = TableCell;
+			sourceTree = "<group>";
+		};
+		D7224D93284520B200E93DB7 /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				D752FEE62840B09600948E93 /* Util.swift */,
+				D76ACF512844964200D1C0A6 /* MyAlert.swift */,
+			);
+			name = Control;
+			sourceTree = "<group>";
+		};
 		D752FEEC2840EAC100948E93 /* data */ = {
 			isa = PBXGroup;
 			children = (
 				D759F518283FC8F600C79202 /* protype.swift */,
 				D759F516283FC8F500C79202 /* manufacture.swift */,
 				D759F517283FC8F500C79202 /* Motorbike.swift */,
+				D71ABF382844EF1B00AC7B16 /* BIll.swift */,
+				D7224D9D28452DCA00E93DB7 /* user.swift */,
 			);
 			name = data;
 			sourceTree = "<group>";
@@ -115,8 +172,45 @@
 		D752FEED2840EB0900948E93 /* admin_controller */ = {
 			isa = PBXGroup;
 			children = (
+				D759F4E9283F599800C79202 /* MotorbikeManagerViewController.swift */,
+				D759F4EA283F599800C79202 /* MotorbikeManagerViewController.xib */,
+				D759F4ED283F5F4900C79202 /* AdminViewController.swift */,
+				D759F4EE283F5F4900C79202 /* AdminViewController.xib */,
+				D759F520283FFA5500C79202 /* ManufactureManagerViewController.swift */,
+				D759F521283FFA5500C79202 /* ManufactureManagerViewController.xib */,
+				D759F52428400D5300C79202 /* ProtypesManagerViewController.swift */,
+				D759F52528400D5300C79202 /* ProtypesManagerViewController.xib */,
+				D7224D9F28453A6900E93DB7 /* BillsManagerViewController.swift */,
+				D7224DA028453A6900E93DB7 /* BillsManagerViewController.xib */,
 			);
 			name = admin_controller;
+			sourceTree = "<group>";
+		};
+		D75BBEEF2843F78C00E3DA15 /* user_controller */ = {
+			isa = PBXGroup;
+			children = (
+				D71ABF352844D19100AC7B16 /* MotorDetailViewController.swift */,
+				D71ABF342844D19000AC7B16 /* MotorDetailViewController.xib */,
+				D75BBEF12843F7F100E3DA15 /* OrderMotorViewController.swift */,
+				D75BBEF22843F7F100E3DA15 /* OrderMotorViewController.xib */,
+				D7224D8E28451DCC00E93DB7 /* AccountUserViewController.swift */,
+				D7224D8F28451DCC00E93DB7 /* AccountUserViewController.xib */,
+				D7E899AE2833A3EE004D7DE9 /* SearchViewController.swift */,
+				D7E899B02833BA26004D7DE9 /* LoginViewController.swift */,
+				D7E849C3283657B800D84F53 /* RegisterViewController.swift */,
+				D7E849C4283657B800D84F53 /* RegisterViewController.xib */,
+				D7224D992845220900E93DB7 /* BillsViewController.swift */,
+				D7224D9A2845220900E93DB7 /* BillsViewController.xib */,
+			);
+			name = user_controller;
+			sourceTree = "<group>";
+		};
+		D75BBEF02843F7C000E3DA15 /* DAL */ = {
+			isa = PBXGroup;
+			children = (
+				D7D993832843811A00539DCB /* DatabaseLayer.swift */,
+			);
+			name = DAL;
 			sourceTree = "<group>";
 		};
 		D7E8998C28339B45004D7DE9 = {
@@ -140,6 +234,10 @@
 		D7E8999728339B45004D7DE9 /* project_QLBX */ = {
 			isa = PBXGroup;
 			children = (
+				D7224D93284520B200E93DB7 /* Control */,
+				D7224D92284520A100E93DB7 /* TableCell */,
+				D75BBEF02843F7C000E3DA15 /* DAL */,
+				D75BBEEF2843F78C00E3DA15 /* user_controller */,
 				D752FEED2840EB0900948E93 /* admin_controller */,
 				D752FEEC2840EAC100948E93 /* data */,
 				D74EDD8C28340B9000D35CAD /* MotorbikeCollectionViewCell.swift */,
@@ -151,27 +249,6 @@
 				D7E899A128339B46004D7DE9 /* Assets.xcassets */,
 				D7E899A328339B46004D7DE9 /* LaunchScreen.storyboard */,
 				D7E899A628339B46004D7DE9 /* Info.plist */,
-				D7E899AE2833A3EE004D7DE9 /* SearchViewController.swift */,
-				D7E899B02833BA26004D7DE9 /* LoginViewController.swift */,
-				D7E849C3283657B800D84F53 /* RegisterViewController.swift */,
-				D7E849C4283657B800D84F53 /* RegisterViewController.xib */,
-				D759F4E9283F599800C79202 /* MotorbikeManagerViewController.swift */,
-				D759F4EA283F599800C79202 /* MotorbikeManagerViewController.xib */,
-				D759F4ED283F5F4900C79202 /* AdminViewController.swift */,
-				D759F4EE283F5F4900C79202 /* AdminViewController.xib */,
-				D759F4F1283F641500C79202 /* AdminTableViewCell.swift */,
-				D759F4F2283F641500C79202 /* AdminTableViewCell.xib */,
-				D759F519283FC9B000C79202 /* MotorManagerTableViewCell.swift */,
-				D759F51A283FC9B000C79202 /* MotorManagerTableViewCell.xib */,
-				D759F520283FFA5500C79202 /* ManufactureManagerViewController.swift */,
-				D759F521283FFA5500C79202 /* ManufactureManagerViewController.xib */,
-				D759F52428400D5300C79202 /* ProtypesManagerViewController.swift */,
-				D759F52528400D5300C79202 /* ProtypesManagerViewController.xib */,
-				D752FEE62840B09600948E93 /* Util.swift */,
-				D752FEE82840B3EC00948E93 /* ManuManagerTableViewCell.swift */,
-				D752FEE92840B3EC00948E93 /* ManuManagerTableViewCell.xib */,
-				D752FEF22840EBF100948E93 /* MotorDetailViewController.swift */,
-				D752FEF32840EBF100948E93 /* MotorDetailViewController.xib */,
 			);
 			path = project_QLBX;
 			sourceTree = "<group>";
@@ -246,17 +323,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7E899A528339B46004D7DE9 /* LaunchScreen.storyboard in Resources */,
+				D71ABF362844D19100AC7B16 /* MotorDetailViewController.xib in Resources */,
 				D759F4EC283F599800C79202 /* MotorbikeManagerViewController.xib in Resources */,
 				D759F523283FFA5500C79202 /* ManufactureManagerViewController.xib in Resources */,
+				D7224DA62845465100E93DB7 /* BillsManagerTableViewCell.xib in Resources */,
 				D7E849C6283657B800D84F53 /* RegisterViewController.xib in Resources */,
 				D752FEEB2840B3EC00948E93 /* ManuManagerTableViewCell.xib in Resources */,
+				D75BBEF42843F7F100E3DA15 /* OrderMotorViewController.xib in Resources */,
 				D759F4F4283F641500C79202 /* AdminTableViewCell.xib in Resources */,
+				D7224DA228453A6A00E93DB7 /* BillsManagerViewController.xib in Resources */,
 				D759F51C283FC9B000C79202 /* MotorManagerTableViewCell.xib in Resources */,
-				D752FEF52840EBF100948E93 /* MotorDetailViewController.xib in Resources */,
 				D7E899AD28339C12004D7DE9 /* GoogleService-Info.plist in Resources */,
 				D759F4F0283F5F4900C79202 /* AdminViewController.xib in Resources */,
 				D7E899A228339B46004D7DE9 /* Assets.xcassets in Resources */,
 				D7E899A028339B45004D7DE9 /* Main.storyboard in Resources */,
+				D7224D9C2845220900E93DB7 /* BillsViewController.xib in Resources */,
+				D7224D9128451DCC00E93DB7 /* AccountUserViewController.xib in Resources */,
 				D759F52728400D5300C79202 /* ProtypesManagerViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -313,21 +395,31 @@
 				D759F4EF283F5F4900C79202 /* AdminViewController.swift in Sources */,
 				D7E8999D28339B45004D7DE9 /* ViewController.swift in Sources */,
 				D759F51B283FC9B000C79202 /* MotorManagerTableViewCell.swift in Sources */,
-				D752FEF42840EBF100948E93 /* MotorDetailViewController.swift in Sources */,
 				D759F522283FFA5500C79202 /* ManufactureManagerViewController.swift in Sources */,
 				D759F51F283FCD4400C79202 /* protype.swift in Sources */,
+				D7224D9E28452DCA00E93DB7 /* user.swift in Sources */,
+				D7224DA52845465100E93DB7 /* BillsManagerTableViewCell.swift in Sources */,
 				D7E849C5283657B800D84F53 /* RegisterViewController.swift in Sources */,
 				D752FEE72840B09600948E93 /* Util.swift in Sources */,
+				D7224D982845218100E93DB7 /* MotorbikeCollectionViewCell.swift in Sources */,
+				D71ABF372844D19100AC7B16 /* MotorDetailViewController.swift in Sources */,
 				D759F51E283FCD4400C79202 /* Motorbike.swift in Sources */,
 				D759F4F3283F641500C79202 /* AdminTableViewCell.swift in Sources */,
 				D7E8999928339B45004D7DE9 /* AppDelegate.swift in Sources */,
 				D759F4EB283F599800C79202 /* MotorbikeManagerViewController.swift in Sources */,
+				D7224D9B2845220900E93DB7 /* BillsViewController.swift in Sources */,
+				D7D993842843811A00539DCB /* DatabaseLayer.swift in Sources */,
+				D7224D9028451DCC00E93DB7 /* AccountUserViewController.swift in Sources */,
 				D7E899AF2833A3EE004D7DE9 /* SearchViewController.swift in Sources */,
 				D752FEEA2840B3EC00948E93 /* ManuManagerTableViewCell.swift in Sources */,
 				D7E899B12833BA26004D7DE9 /* LoginViewController.swift in Sources */,
 				D7E8999B28339B45004D7DE9 /* SceneDelegate.swift in Sources */,
 				D74EDD8D28340B9000D35CAD /* MotorbikeCollectionViewCell.swift in Sources */,
+				D7224DA128453A6900E93DB7 /* BillsManagerViewController.swift in Sources */,
+				D75BBEF32843F7F100E3DA15 /* OrderMotorViewController.swift in Sources */,
+				D71ABF392844EF1B00AC7B16 /* BIll.swift in Sources */,
 				D759F52628400D5300C79202 /* ProtypesManagerViewController.swift in Sources */,
+				D76ACF522844964200D1C0A6 /* MyAlert.swift in Sources */,
 				D759F51D283FCD4400C79202 /* manufacture.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

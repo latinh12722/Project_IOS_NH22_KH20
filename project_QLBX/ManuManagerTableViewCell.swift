@@ -22,6 +22,9 @@ class ManuManagerTableViewCell: UITableViewCell {
     }
     func setvalue_manu(manu:manufacture) {
         lbmanuname.text = manu.manu_name
-        imagemanu.image = UIImage(named: manu.image)
+        if !manu.image.isEmpty {
+            let imageData = Data(base64Encoded: manu.image, options: .ignoreUnknownCharacters)!
+            imagemanu.image = UIImage(data: imageData)
+        }
     }
 }

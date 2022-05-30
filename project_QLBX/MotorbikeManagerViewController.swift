@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
+import AssetsLibrary
 class MotorbikeManagerViewController: UIViewController , UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     @IBOutlet weak var motor_table: UITableView!
     @IBOutlet weak var imagemotor: UIImageView!
@@ -69,11 +70,31 @@ class MotorbikeManagerViewController: UIViewController , UITableViewDelegate, UI
         btnsua.isEnabled = false
         btnxoa.isEnabled = false
         
+        
+        tfname.returnKeyType = .done
+        tfname.delegate = self
+        tfpk.returnKeyType = .done
+        tfpk.delegate = self
+        tfphanh.returnKeyType = .done
+        tfphanh.delegate = self
+        tfnsx.returnKeyType = .done
+        tfnsx.delegate = self
+        tfprice.returnKeyType = .done
+        tfprice.delegate = self
+        tfdongco.returnKeyType = .done
+        tfdongco.delegate = self
+        tfnhietlieu.returnKeyType = .done
+        tfnhietlieu.delegate = self
+        tftruyentai.returnKeyType = .done
+        tftruyentai.delegate = self
     }
     @IBAction func dimiss(_ sender: Any) {
         self.dismiss(animated: false, completion: nil)
     }
-    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     @IBAction func btndatlai(_ sender: Any) {
         resetcontrol()
         self.showSpinner()
@@ -97,6 +118,7 @@ class MotorbikeManagerViewController: UIViewController , UITableViewDelegate, UI
         btn_manu_dropdown.setTitle("Hãng", for: .normal)
         btn_type_dropdown.setTitle("Loại xe", for: .normal)
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -174,10 +196,15 @@ class MotorbikeManagerViewController: UIViewController , UITableViewDelegate, UI
             btn_manu_dropdown.setTitle(getnamemanu(id: moto.manu_id), for: .normal)
             
             btn_type_dropdown.setTitle(getnametype(id: moto.type_id), for: .normal)
-            type_id_save = getnametype(id: moto.type_id)
-            manu_id_save = getnamemanu(id: moto.manu_id)
+            type_id_save = moto.type_id
+            manu_id_save = moto.manu_id
             btnsua.isEnabled = true
             btnxoa.isEnabled = true
+            
+            if !moto.image.isEmpty {
+                let imageData = Data(base64Encoded: moto.image, options: .ignoreUnknownCharacters)!
+                imagemotor.image = UIImage(data: imageData)
+            }
             
         }
         self.view.layoutIfNeeded()
@@ -229,7 +256,7 @@ class MotorbikeManagerViewController: UIViewController , UITableViewDelegate, UI
                     let cubic_meter =  artistObject?["cubic_meter"] as! Int
                     
                     let moto = Motorbike(id: id, name: moto_name, price: moto_price, type_id: type_id, manu_id: manu_id, brake: brake, fuel: fuel, transmission: transmission, engine: engine, cubic_meter: cubic_meter, image: image, nsx: nsx)
-                    motorbikes.append(moto!)
+                    motorbikes.append(moto)
                 }
                 
             }
@@ -255,19 +282,46 @@ class MotorbikeManagerViewController: UIViewController , UITableViewDelegate, UI
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         //get the image from the imagePickerController
         if let selectedImage = info[.originalImage] as? UIImage{
-            let url = info[UIImagePickerController.InfoKey.referenceURL] as! NSURL
-            nameimagemotor =  url.lastPathComponent!
-            
+           
             imagemotor.image = selectedImage
         }
         //hide ther imagePickerController
         dismiss(animated: true, completion: nil)
     }
-    
+    func imagePickerController1(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let selectedImage = info[.originalImage] as? UIImage else {
+            fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
+        }
+        print(selectedImage.description)
+        dismiss(animated: true, completion: nil)
+//
+        if let imgUrl = info[UIImagePickerController.InfoKey.imageURL] as? URL{
+            let imgName = imgUrl.lastPathComponent
+            print(imgName)
+            let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first
+            let localPath = documentDirectory?.appending(imgName)
+
+            let image = info[.originalImage] as! UIImage
+            let data = image.pngData()! as NSData
+            data.write(toFile: localPath!, atomically: true)
+            //let imageData = NSData(contentsOfFile: localPath!)!
+            let photoURL = URL.init(fileURLWithPath: localPath!)//NSURL(fileURLWithPath: localPath!)
+            print(photoURL.lastPathComponent)
+
+        }
+        
+
+    }
     
     @IBAction func btnthem(_ sender: Any) {
         if self.checknumber_kam(x: tfprice.text!) && self.checknumber_kam(x: tfnsx.text!) && self.checknumber_kam(x: tfpk.text!){
             ref = Database.database().reference().child("motorbikes")
+            
+            var imageString = ""
+            if let image = imagemotor.image {
+                let imageNSData = image.pngData()! as NSData
+                imageString = imageNSData.base64EncodedString(options: .lineLength64Characters)
+            }
             let key = ref.childByAutoId().key
             let xe = ["id":key as Any,
                   "moto_name": tfname.text as Any,
@@ -280,7 +334,7 @@ class MotorbikeManagerViewController: UIViewController , UITableViewDelegate, UI
                   "brake" : tfphanh.text as Any,
                   "engine" : tfdongco.text as Any,
                   "nsx": Int(tfnsx.text!) as Any,
-                  "image": nameimagemotor] as [String : Any]
+                  "image": imageString] as [String : Any]
             ref.child(String(key!)).setValue(xe)
             btnsua.isEnabled = false
             btnxoa.isEnabled = false
@@ -302,6 +356,11 @@ class MotorbikeManagerViewController: UIViewController , UITableViewDelegate, UI
         if self.checknumber_kam(x: tfprice.text!) && self.checknumber_kam(x: tfnsx.text!) && self.checknumber_kam(x: tfpk.text!){
             let id = motor_id
             ref = Database.database().reference().child("motorbikes")
+            var imageString = ""
+            if let image = imagemotor.image {
+                let imageNSData = image.pngData()! as NSData
+                imageString = imageNSData.base64EncodedString(options: .lineLength64Characters)
+            }
             ref.child(id).setValue(["id": id as Any,
             "moto_name": tfname.text as Any,
             "moto_price": Int(tfprice.text!) as Any,
@@ -313,7 +372,7 @@ class MotorbikeManagerViewController: UIViewController , UITableViewDelegate, UI
             "brake" : tfphanh.text as Any,
             "engine" : tfdongco.text as Any,
             "nsx": Int(tfnsx.text!) as Any,
-            "image": nameimagemotor] as [String : Any])
+            "image": imageString] as [String : Any])
             
             btnsua.isEnabled = false
             btnxoa.isEnabled = false

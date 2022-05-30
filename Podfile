@@ -8,6 +8,5 @@ target 'project_QLBX' do
   
 pod 'Firebase/Analytics'
 pod 'Firebase/Database'
-pod 'FirebaseCore'
   
 end

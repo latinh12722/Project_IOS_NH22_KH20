@@ -57,6 +57,10 @@ class AdminViewController: UIViewController , UITableViewDelegate, UITableViewDa
 //            self.present(vc, animated: true, completion: nil)
 //        }
         switch indexPath.row {
+        case 0:
+            let vc = BillsManagerViewController()
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true, completion: nil)
         case 1:
             let vc = MotorbikeManagerViewController()
             vc.modalPresentationStyle = .fullScreen

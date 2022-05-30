@@ -10,54 +10,53 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 var login_user = ""
-var login_admin = "admin"
+var login_admin = "1"
 var motorbikes:[Motorbike] = []
 var manus:[manufacture] = []
 var types:[protype] = []
+var users:[user] = []
+var bills:[Bill] = []
 class ViewController: UIViewController{
     var ref: DatabaseReference!
-    
+    var sql = DatabaseLayer()
     @IBOutlet weak var btnsearch: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var btnAccount: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-       
-        // Do any additional setup after loading the view.
+        sql = DatabaseLayer()
         collectionView.dataSource = self
         collectionView.delegate = self
-        
         
         btnAccount.target = self
         btnAccount.action = #selector(click_account)
         ref = Database.database().reference().child("motorbikes")
-        
-        getdata_manu()
-        getdata_type()
-        getdata_moto()
+        self.sql.getdata_moto()
+        self.sql.getdata_manu()
+        self.sql.getdata_type()
+        self.sql.getalluser()
+        self.sql.getbills()
+        self.showSpinner()
+        Timer.scheduledTimer(withTimeInterval: 5.0, repeats: false) { (t) in
+            
+            self.collectionView.reloadData()
+            self.removeSpinner()
+        }
+
         btnsearch.layer.cornerRadius = 10
-//        manus+=[manufacture(manu_id: "1", manu_name: "123", image: "Ád")!]
-//        manus+=[manufacture(manu_id: "2", manu_name: "ád", image: "Ád")!]
-//        manus+=[manufacture(manu_id: "3", manu_name: "12ứ", image: "Ád")!]
-//
-//        types+=[protype(type_id: "1", type_name: "213")!]
-//        types+=[protype(type_id: "1", type_name: "ád")!]
-//        types+=[protype(type_id: "1", type_name: "qưds")!]
-        
-        
+
     }
     
     
     
     @IBAction func reload(_ sender: Any) {
         btnsearch.titleLabel?.text = "🔎 Nhập từ khoá tìm kiếm"
-        getdata_manu()
-        getdata_type()
-        getdata_moto()
+        
         self.showSpinner()
         Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { (t) in
-            self.getdata_type()
+            self.sql.getdata_moto()
+            self.sql.getdata_manu()
+            self.sql.getdata_type()
             self.collectionView.reloadData()
             self.removeSpinner()
         }
@@ -165,19 +164,18 @@ class ViewController: UIViewController{
                     let cubic_meter =  artistObject?["cubic_meter"] as! Int
                     
                     let moto = Motorbike(id: id, name: moto_name, price: moto_price, type_id: type_id, manu_id: manu_id, brake: brake, fuel: fuel, transmission: transmission, engine: engine, cubic_meter: cubic_meter, image: image, nsx: nsx)
-                    motorbikes.append(moto!)
+                    motorbikes.append(moto)
                 }
                 self.collectionView.reloadData()
             }
         })
     }
     @objc func click_account (sender:UIButton) {
+        print(bills.count)
         if login_user != "" {
-            print("ok")
-//            let navigation = UINavigationController(rootViewController: logincontroller)
-//            self.view.addSubview(navigation.view)
-//            self.addChild(navigation)
-//            navigation.didMove(toParent: self)
+            let vc = AccountUserViewController()
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true, completion: nil)
         }else{
             if login_admin != "" {
                 let vc = AdminViewController()
@@ -190,8 +188,17 @@ class ViewController: UIViewController{
                 self.present(logincontroller, animated: true, completion: nil)
             }
         }
+        
+        
+        
     }
-    
+    @IBAction func unwindMain(_ sender: UIStoryboardSegue){
+        
+    }
+    @IBAction func unwindMain_Search(_ sender: UIStoryboardSegue){
+        
+    }
+
     
 }
 
@@ -222,7 +229,8 @@ extension ViewController:UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = MotorDetailViewController()
         vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true, completion: nil)
+        vc.motor_id = motorbikes[indexPath.row].id
+        present(vc, animated: true, completion: nil)
     }
 }
 

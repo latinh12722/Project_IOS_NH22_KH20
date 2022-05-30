@@ -36,8 +36,14 @@ class ManufactureManagerViewController: UIViewController ,UITableViewDelegate, U
         imagemanu.isUserInteractionEnabled = true
         btnchonanh.addGestureRecognizer(tap)
         btnchonanh.isUserInteractionEnabled = true
+        tfmanuname.delegate = self
+        tfmanuname.returnKeyType = .done
+        
     }
-
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     @IBAction func dimiss_manu(_ sender: Any) {
         self.dismiss(animated: false, completion: nil)
     }
@@ -61,19 +67,28 @@ class ManufactureManagerViewController: UIViewController ,UITableViewDelegate, U
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        lbmanuid.text = "ID: " + manus[indexPath.row].manu_id
+        lbmanuid.text = manus[indexPath.row].manu_id
         tfmanuname.text = manus[indexPath.row].manu_name
-        imagemanu.image = UIImage(named: manus[indexPath.row].image)
-        nameimage = manus[indexPath.row].image
+        if !manus[indexPath.row].image.isEmpty {
+            let imageData = Data(base64Encoded: manus[indexPath.row].image, options: .ignoreUnknownCharacters)!
+            imagemanu.image = UIImage(data: imageData)
+            btnchonanh.layer.zPosition = 10
+        }
     }
     @IBAction func btnthem(_ sender: Any) {
         if nameimage != "" {
             ref = Database.database().reference().child("manufactures")
+            var imageString = ""
+            if let image = imagemanu.image {
+                let imageNSData = image.pngData()! as NSData
+                imageString = imageNSData.base64EncodedString(options: .lineLength64Characters)
+            }
+            
             let k = ref.childByAutoId().key
             
-            let manu = ["manu_id":k as Any,
+            let manu = ["manu_id": k as Any,
                         "manu_name": tfmanuname.text as Any,
-                        "image": nameimage
+                        "image": imageString
             ]
             ref.child(String(k!)).setValue(manu)
             self.showSpinner()
@@ -86,9 +101,18 @@ class ManufactureManagerViewController: UIViewController ,UITableViewDelegate, U
         
     }
     @IBAction func btnsua(_ sender: Any) {
-        let id = manus[tbmanu.indexPathForSelectedRow!.row].manu_id
+        let id = lbmanuid.text
         ref = Database.database().reference().child("manufactures")
-        ref.child(id).setValue(["manu_id": id , "manu_name": tfmanuname.text])
+        
+        var imageString = ""
+        if let image = imagemanu.image {
+            let imageNSData = image.pngData()! as NSData
+            imageString = imageNSData.base64EncodedString(options: .lineLength64Characters)
+        }
+        
+        ref.child(id!).setValue(["manu_id": id as Any ,
+                                 "manu_name": tfmanuname.text as Any ,
+                                "image": imageString])
         
         
         self.showSpinner()
@@ -152,9 +176,7 @@ class ManufactureManagerViewController: UIViewController ,UITableViewDelegate, U
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
             //get the image from the imagePickerController
     if let selectedImage = info[.originalImage] as? UIImage{
-        let url = info[UIImagePickerController.InfoKey.referenceURL] as! NSURL
-        nameimage =  url.lastPathComponent!
-        
+       
         imagemanu.image = selectedImage
         imagemanu.layer.zPosition = 10
     }

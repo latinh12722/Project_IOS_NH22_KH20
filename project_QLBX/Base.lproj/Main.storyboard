@@ -145,21 +145,6 @@
             </objects>
             <point key="canvasLocation" x="1042.0289855072465" y="89.732142857142847"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="iTP-AP-Rww">
-            <objects>
-                <viewController id="XVf-gJ-FDt" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="E5n-Td-Jmn">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="Jtu-Vk-RxG"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GGZ-3a-ftE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1042" y="794"/>
-        </scene>
         <!--Search View Controller-->
         <scene sceneID="Ane-se-lWw">
             <objects>
@@ -191,6 +176,9 @@
                                 <state key="normal" title="Tìm kiếm">
                                     <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 </state>
+                                <connections>
+                                    <segue destination="I9K-WE-cyd" kind="unwind" unwindAction="unwindMain_Search:" id="1hy-hi-MXz"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -214,6 +202,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ywb-4C-e5L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="I9K-WE-cyd" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1810" y="90"/>
         </scene>
@@ -254,6 +243,9 @@
                                 <state key="normal" title="Đăng nhập">
                                     <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="login:" destination="tCE-GJ-IRS" eventType="touchUpInside" id="WcH-0T-dC2"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hrR-6r-C4k">
                                 <rect key="frame" x="50" y="392" width="314" height="36"/>

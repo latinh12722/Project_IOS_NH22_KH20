@@ -27,12 +27,17 @@ class MotorManagerTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func setvalue_motor(moto: Motorbike){
+        
+        
         lbname.text = moto.name
         lbprice.text = df2so(Double(moto.price)) + " đ"
         lbhang.text = getnamemanu(id: moto.manu_id)
         lbloaixe.text = getnametype(id: moto.type_id)
         lbpk.text = String(moto.cubic_meter)
-        imagemotor?.image = UIImage(named: moto.image)
+        if !moto.image.isEmpty {
+            let imageData = Data(base64Encoded: moto.image, options: .ignoreUnknownCharacters)!
+            imagemotor.image = UIImage(data: imageData)
+        }
         imagemotor.contentMode = .scaleAspectFill
     }
     

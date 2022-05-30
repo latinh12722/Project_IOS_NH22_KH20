@@ -11,19 +11,25 @@ import Firebase
 import FirebaseDatabase
 
 class ProtypesManagerViewController: UIViewController ,
-UITableViewDelegate, UITableViewDataSource {
+UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     var ref: DatabaseReference!
     @IBOutlet weak var tftypename: UITextField!
     @IBOutlet weak var lbtypeid: UILabel!
     @IBOutlet weak var tbprotype: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tbprotype.dataSource = self
         tbprotype.delegate = self
         tbprotype.register(UINib(nibName: "AdminTableViewCell", bundle: nil), forCellReuseIdentifier: "AdminTableViewCell")
+        tftypename.returnKeyType = .done
+        tftypename.delegate = self
     }
-
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 
     @IBAction func dissmiss(_ sender: Any) {
         self.dismiss(animated: false, completion: nil)
