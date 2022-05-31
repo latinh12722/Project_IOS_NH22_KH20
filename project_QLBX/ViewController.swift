@@ -10,13 +10,14 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 var login_user = ""
-var login_admin = "1"
+var login_admin = ""
 var motorbikes:[Motorbike] = []
 var manus:[manufacture] = []
 var types:[protype] = []
 var users:[user] = []
 var bills:[Bill] = []
 class ViewController: UIViewController{
+    var search:String = ""
     var ref: DatabaseReference!
     var sql = DatabaseLayer()
     @IBOutlet weak var btnsearch: UIButton!
@@ -192,11 +193,13 @@ class ViewController: UIViewController{
         
         
     }
-    @IBAction func unwindMain(_ sender: UIStoryboardSegue){
-        
-    }
+    @IBAction func unwindMain(_ sender: UIStoryboardSegue){}
     @IBAction func unwindMain_Search(_ sender: UIStoryboardSegue){
-        
+        if let sourceController = sender.source as? SearchViewController {
+        // Get the new meal from meail detail controller
+            
+            
+        }
     }
 
     

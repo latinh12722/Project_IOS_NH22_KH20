@@ -37,4 +37,7 @@ class AccountUserViewController: UIViewController, UITableViewDelegate, UITableV
             dismiss(animated: true, completion: nil)
         }
     }
+    @IBAction func dimiss(_ sender: Any) {
+        self.dismiss(animated: false, completion: nil)
+    }
 }

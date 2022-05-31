@@ -23,7 +23,11 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                     <items>
                         <navigationItem title="Tài khoản" id="Yxi-IH-UPY">
-                            <barButtonItem key="leftBarButtonItem" title="Item" id="Hym-vI-uO4"/>
+                            <barButtonItem key="leftBarButtonItem" title="←" id="Hym-vI-uO4">
+                                <connections>
+                                    <action selector="dimiss:" destination="-1" id="ui4-Al-r07"/>
+                                </connections>
+                            </barButtonItem>
                         </navigationItem>
                     </items>
                 </navigationBar>

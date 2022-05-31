@@ -14,12 +14,12 @@ class AdminViewController: UIViewController , UITableViewDelegate, UITableViewDa
 
     @IBOutlet weak var tbvadmin: UITableView!
     @IBOutlet weak var lbnameadmin: UILabel!
-    var danhsach:[String] = ["Bill","Motorbikes","Manufactures","Protypes"]
+    var danhsach:[String] = ["Đơn hàng","Xe","Hãng xe","Loại xe"]
     var btn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         lbnameadmin.text = "Admin: " + login_user
-        danhsach = ["Bill","Motorbikes","Manufactures","Protypes"]
+        danhsach = ["Đơn hàng","Xe","Hãng xe","Loại xe"]
         tbvadmin.delegate = self
         tbvadmin.dataSource = self
         let nib = UINib(nibName: "AdminTableViewCell", bundle: nil)

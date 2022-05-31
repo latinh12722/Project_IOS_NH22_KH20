@@ -69,9 +69,6 @@ UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
             "type_name": tftypename.text!
         ]
         ref.child(String(k!)).setValue(type)
-        
-        
-     
         self.showSpinner()
         Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { (t) in
             self.getdata_type()
@@ -98,8 +95,6 @@ UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
         let id = lbtypeid.text
         ref = Database.database().reference().child("protypes")
         ref.child(id!).removeValue()
-        
-        
         self.showSpinner()
         Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { (t) in
             self.getdata_type()

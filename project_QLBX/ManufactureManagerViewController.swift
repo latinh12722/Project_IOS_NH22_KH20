@@ -72,8 +72,9 @@ class ManufactureManagerViewController: UIViewController ,UITableViewDelegate, U
         if !manus[indexPath.row].image.isEmpty {
             let imageData = Data(base64Encoded: manus[indexPath.row].image, options: .ignoreUnknownCharacters)!
             imagemanu.image = UIImage(data: imageData)
-            btnchonanh.layer.zPosition = 10
+            
         }
+        imagemanu.layer.zPosition = 20
     }
     @IBAction func btnthem(_ sender: Any) {
         if nameimage != "" {
